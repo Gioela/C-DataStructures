@@ -9,7 +9,9 @@
 
 ### DynamicArray
 Dynarray was modified the lesson's code with less realloc syscall.
+2022.01.04 - Updated: 
+    - it created dynarray.h and divided dynarray code from main file;
 
 #### TO-DO:
-- add test and split dynarray code between main file and dynarray file structure
-- define h file
+- add dynarray test code
+- add others DataStructures

@@ -2,15 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-
-typedef struct dynarray
-{
-    size_t size_of_elements;    // typedef of element
-    size_t number_of_elements;  // active numbers in array
-    size_t capacity;            // total space allocated
-    uint8_t *data;              // data
-    uint8_t *temp_data;         // copy of data
-} dynarray_t;
+#include "dynarray.h"
 
 int dynarray_init(dynarray_t *array, const size_t size_of_element)
 {
@@ -22,10 +14,6 @@ int dynarray_init(dynarray_t *array, const size_t size_of_element)
     if (!array->temp_data) return -1;
     return 0;
 }
-
-#define dynarray_init_type(array, type) dynarray_init(array, sizeof(type))
-
-// #define DEBUG(msg) puts("[DEBUG] %s", msg)
 
 void dynarray_clear(dynarray_t *array)
 {
@@ -54,7 +42,7 @@ int dynarray_get(const dynarray_t *array, const size_t index, void *value)
         puts("[ERROR] index out of bound exception");
         return -1;
     }
-    // calculate the index offset to copy the value of this n-element
+    // calculate the index offset to copy the value of this n-element 
     // from array->data + offset into value
     // (NOTE: size_of_elements tells how many bytes must be copied into value)
     const size_t offset = index * array->size_of_elements;
@@ -132,7 +120,8 @@ int dynarray_remove(dynarray_t *array, const size_t index)
     return 0;
 }
 
-int main()
+
+int dynarray_run()
 {
     dynarray_t array;
     dynarray_init_type(&array, int);
