@@ -1,8 +1,7 @@
-// #include <stdlib.h>
-// #include <stdint.h>
 #include <stdio.h>
 #include "dynarray.h"
 
+// int main(int argc, char* argv[])
 int main()
 {
     if (dynarray_run() != 0)
