@@ -4,6 +4,13 @@
 #include <string.h>
 #include "dynarray.h"
 
+/*
+ * Initialize dynamic array.
+ * In case of errors will be return -1, 0 otherwise.
+ *
+ * @param array Array to initialize
+ * @param size_of_element Which type of elements will be stored into array
+ */
 int dynarray_init(dynarray_t *array, const size_t size_of_element)
 {
     array->size_of_elements = size_of_element;
@@ -15,6 +22,11 @@ int dynarray_init(dynarray_t *array, const size_t size_of_element)
     return 0;
 }
 
+/*
+ * Clear the dynamic array properties.
+ *
+ * @param array Array to clean
+ */
 void dynarray_clear(dynarray_t *array)
 {
     array->capacity = 4;
@@ -25,16 +37,37 @@ void dynarray_clear(dynarray_t *array)
     array->temp_data = NULL;
 }
 
+/*
+ * Return the length of the given dynamic array.
+ * NOTE: Length is given by the number of elements into array
+ *
+ * @param array Array whose length you want to know
+ */
 size_t dynarray_len(const dynarray_t *array)
 {
     return array->number_of_elements;
 }
+
+/*
+ * Return the capacity of the given dynamic array.
+ * NOTE: Capacity is how many memory is occupied by the array
+ *
+ * @param array Array whose capacity you want to know
+ */
 
 size_t dynarray_capacity(const dynarray_t *array)
 {
     return array->capacity;
 }
 
+/*
+ * Return the index element into array, if it found, otherwise will return
+ * the error code -1.
+ *
+ * @param array Array from you want take element
+ * @param index Index of element into the array
+ * @param value Pointer, where the value will be stored
+ */
 int dynarray_get(const dynarray_t *array, const size_t index, void *value)
 {
     if (index >= array->number_of_elements || index < 0)
@@ -50,6 +83,13 @@ int dynarray_get(const dynarray_t *array, const size_t index, void *value)
     return 0;
 }
 
+/*
+ * Append value at the end of the dynamic array.
+ * In case of errors will be return -1, 0 otherwise.
+ * 
+ * @param array Array where element will be append
+ * @param value Value to be append into the array
+ */
 int dynarray_append(dynarray_t *array, const void *value)
 {
     if (array->number_of_elements + 1 > array->capacity || array->number_of_elements == 0)
@@ -74,6 +114,13 @@ int dynarray_append(dynarray_t *array, const void *value)
     return 0;
 }
 
+/*
+ * Remove the value at the given index from the dynamic array.
+ * In case of errors will be return -1, 0 otherwise.
+ *
+ * @param array Array where element will be removed
+ * @param index Position of the element which you want to remove
+ */
 int dynarray_remove(dynarray_t *array, const size_t index)
 {
     // check index value: inner or outer bounds
@@ -120,7 +167,9 @@ int dynarray_remove(dynarray_t *array, const size_t index)
     return 0;
 }
 
-
+/*
+ * Simple demonstration of the dynarray's methods.
+ */
 int dynarray_run()
 {
     dynarray_t array;

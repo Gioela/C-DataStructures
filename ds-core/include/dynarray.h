@@ -4,6 +4,9 @@
 
 #include <stdint.h>
 
+/*
+ * Dynamic Array structure
+ */
 typedef struct dynarray
 {
     size_t size_of_elements;    // typedef of element
