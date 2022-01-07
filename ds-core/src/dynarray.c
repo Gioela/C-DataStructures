@@ -29,7 +29,7 @@ int dynarray_init(dynarray_t *array, const size_t size_of_element)
  */
 void dynarray_clear(dynarray_t *array)
 {
-    array->capacity = 4;
+    array->capacity = 0;
     array->number_of_elements = 0;
     free(array->data);
     array->data = NULL;
@@ -144,9 +144,11 @@ int dynarray_remove(dynarray_t *array, const size_t index)
     }
     
     // update array->capacity if capacity is twice of number_of_elements
-    if ( array->capacity % array->number_of_elements == 0)
+    // if ( array->capacity % array->number_of_elements == 0)
+    if ( array->capacity - 4 > array->number_of_elements)
     {
-        array->capacity = array->number_of_elements;
+        // array->capacity = array->number_of_elements;
+        array->capacity = array->number_of_elements / 4 * 4 + 4;
         uint8_t *new_pointer = realloc(array->data, array->capacity * array->size_of_elements);
         if (!new_pointer)
         {
