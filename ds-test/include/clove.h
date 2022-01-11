@@ -84,6 +84,20 @@ static void __clove_check_int(const unsigned int check_mode, int expected, int r
     }
 }
 
+// static void __clove_check_char(const unsigned int check_mode, char expected, char result, __clove_test *_this) {
+//     int pass_scenario = 0;
+//     if (check_mode == __CLOVE_ASSERT_CHECK_EQUALITY) { pass_scenario = expected == result; }
+//     else if (check_mode == __CLOVE_ASSERT_CHECK_DIFFERENCE) { pass_scenario = expected != result; }
+    
+//     if (pass_scenario) {
+//         __clove_pass("", _this);
+//     } else {
+//         char msg[__CLOVE_STRING_LENGTH];
+//         sprintf(msg, "expected [%c] but was [%c]", expected, result);
+//         __clove_fail(msg, _this);
+//     }
+// }
+
 static void __clove_check_bool(const unsigned int check_mode, int result, __clove_test *_this) {
     /*
         In C standard:
@@ -362,6 +376,7 @@ int main(int argc, char* argv[]) {\
 #define CLOVE_PTR_NE(p1, p2) __CLOVE_TEST_GUARD __clove_check_ptr(__CLOVE_ASSERT_CHECK_DIFFERENCE, p1, p2, _this);
 #define CLOVE_FLOAT_EQ(exp, res) __CLOVE_TEST_GUARD __clove_check_float(__CLOVE_ASSERT_CHECK_EQUALITY, exp, res, _this);
 #define CLOVE_FLOAT_NE(exp, res) __CLOVE_TEST_GUARD __clove_check_float(__CLOVE_ASSERT_CHECK_DIFFERENCE, exp, res, _this);
+// #define MY_CLOVE_PTR_EQ(p1, p2) __CLOVE_TEST_GUARD __clove_check_char(__CLOVE_ASSERT_CHECK_EQUALITY, p1, p2, _this);
 #pragma endregion
 
 #endif //CLOVE_H

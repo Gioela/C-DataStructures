@@ -7,16 +7,10 @@
 
 ### DynamicArray
 Dynarray was modified the lesson's code with less realloc syscall.
+Use the clove.h for tests, updated the project structure, insert bat configurations
+and implements the remove symbol.
 
-- 2022.01.05 Updated:
-  - inserted tests with clove.h;
-  - bat configuration;
-  - minor fix.
-
-- 2022.01.05 Updated:
-  - it inserted bat files to compile project;
-  - updated project folder structure;
-  - updated dynarray with comments.
-
-- 2022.01.04 Updated: 
-  - it created dynarray.h and divided dynarray code from main file.
+### LinkedList
+Implemented the remove symbol, use the preprocessor directive to do some casts,
+use the clove.h for tests, insert bat configurations.
+NOTE: there is a little bug on the remove methods but it's too late to resolve it now.

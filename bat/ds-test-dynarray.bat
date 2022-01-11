@@ -5,5 +5,6 @@ set CORE_PATH=%PRJ_BASE_PATH%\ds-core
 set TEST_PATH=%PRJ_BASE_PATH%\ds-test
 
 MD %BIN_PATH%
-clang -I%TEST_PATH%\include -I%CORE_PATH%\include -o %BIN_PATH%\test.exe %TEST_PATH%\src\*.c ^
+clang -I%TEST_PATH%\include -I%CORE_PATH%\include ^
+    -o %BIN_PATH%\test-dynarray.exe %TEST_PATH%\src\main-test-dynarray.c ^
     -L %BIN_PATH% -l dynarray
