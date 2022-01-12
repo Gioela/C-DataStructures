@@ -77,6 +77,9 @@ int dynarray_append(dynarray_t *array, const void *value);
  */
 int dynarray_remove(dynarray_t *array, const size_t index);
 
+/*
+ * Simple demonstration of the dynarray's methods.
+ */
 int dynarray_run();
 
 // #endif   // DYNARRAY_HEADER

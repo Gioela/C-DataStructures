@@ -64,7 +64,7 @@ int dynarray_append(dynarray_t *array, const void *value)
             puts("[ERROR] inable to allocate new memory");
             return -1;
         }
-        puts("[INFO] allocated new space successfully");
+        // puts("[INFO] allocated new space successfully");
         array->capacity = new_capacity;
         array->data = new_ptr;
     }
@@ -115,16 +115,12 @@ int dynarray_remove(dynarray_t *array, const size_t index)
             }
             return -1;
         }
-        printf("[INFO] updated array->capacity %llu - array->number_of_elements %llu\n",
-                array->capacity, array->number_of_elements);
+        // printf("[INFO] updated array->capacity %llu - array->number_of_elements %llu\n", array->capacity, array->number_of_elements);
     }
     // printf("[DEBUG][REMOVE][END] removed index %llu\n\n", index);
     return 0;
 }
 
-/*
- * Simple demonstration of the dynarray's methods.
- */
 int dynarray_run()
 {
     dynarray_t array;

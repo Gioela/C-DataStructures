@@ -1,6 +1,9 @@
 ### DynamicArray
 Dynarray was modified the lesson's code with less realloc syscall.
 
+- 2022.01.12:
+  - fixed unit test.
+
 - 2022.01.05 Updated:
   - inserted tests with clove.h;
   - bat configuration;
