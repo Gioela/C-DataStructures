@@ -1,3 +1,4 @@
+@echo off
 set BAT_BASE_PATH=%~dp0
 set PRJ_BASE_PATH=%BAT_BASE_PATH%..
 set BIN_PATH=%PRJ_BASE_PATH%\bin

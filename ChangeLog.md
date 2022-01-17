@@ -1,8 +1,15 @@
 ### DynamicArray
 Dynarray was modified the lesson's code with less realloc syscall.
 
+- 2022.01.17:
+  - added clove tests for linked list functions:
+    - reverse
+    - remove by value
+    - remove by index
+    - pop element
+
 - 2022.01.12:
-  - fixed unit test.
+  - fixed dynarray unit test.
 
 - 2022.01.05 Updated:
   - inserted tests with clove.h;

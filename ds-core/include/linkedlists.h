@@ -34,6 +34,15 @@ list_node_t *list_append(list_node_t **head, list_node_t *item);
 list_node_t *list_pop(list_node_t **head);
 
 /*
+ * Reverse the head list and assign the new item to value
+ *
+ * @param head List to be reversed
+ * @param value Pointer, where the value will be stored
+ */
+// int list_reverse(list_node_t **head, list_node_t **new_list);
+list_node_t *list_reverse(list_node_t **head);
+
+/*
  * Remove the list_node_t element which contains the given value 
  * from the linked list
  *
@@ -43,11 +52,26 @@ list_node_t *list_pop(list_node_t **head);
 string_item_t *list_remove_value(list_node_t **head, const char *value);
 
 /*
+ * Remove the list_node_t element at the given index from the linked list
+ *
+ * @param **head First element of the linked list
+ * @param *index Index of the element which want to remove
+ */
+list_node_t *list_remove_by_index(list_node_t **head, const int index);
+
+/*
  * Initialize new string_item_t structure
  *
  * @param *string String to store into item
  */
 string_item_t *string_item_new(const char *string);
+
+/*
+ * Print elements which are into linked list
+ *
+ * @param **head Pointer, list_node_t from which start to print elements
+ */
+int list_node_print_elements(list_node_t **head);
 
 /*
  * Execute the linkedlists methods: append and remove element
