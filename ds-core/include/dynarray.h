@@ -57,7 +57,7 @@ size_t dynarray_capacity(const dynarray_t *array);
  * @param index Index of element into the array
  * @param value Pointer, where the value will be stored
  */
-int dynarray_get(const dynarray_t *array, const size_t index, void *value);
+int dynarray_get_element_by_index(const dynarray_t *array, const size_t index, void *value);
 
 /*
  * Append value at the end of the dynamic array.
@@ -76,10 +76,5 @@ int dynarray_append(dynarray_t *array, const void *value);
  * @param index Position of the element which you want to remove
  */
 int dynarray_remove(dynarray_t *array, const size_t index);
-
-/*
- * Simple demonstration of the dynarray's methods.
- */
-int dynarray_run();
 
 // #endif   // DYNARRAY_HEADER

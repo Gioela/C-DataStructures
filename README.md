@@ -1,6 +1,6 @@
 # Christmas AIV's exercises
 
-## define C DataStructures
+## Define C DataStructures
 - [x] DynamicArray
 - [x] LinkedList
 - [ ] DoubleLinkedList
@@ -9,7 +9,7 @@
 
 ### DynamicArray
 Dynarray was modified the lesson's code with less realloc syscall.
-Use the clove.h for tests, updated the project structure, insert bat configurations
+Use the clove.h for 18 tests, updated the project structure, insert bat configurations
 and implements the remove symbol.
 
 ### LinkedList
@@ -22,7 +22,7 @@ The preprocessor directive is used to do some casts, it is imported the clove.h
  for tests, it is inserted bat configurations.
 
 #### Known errors (but ignored causes):
-There are a probably logic errors into symbols:
+There are a probably logic errors into LinkedList symbols:
 - reverse
 - remove_value
 - remove_by_index

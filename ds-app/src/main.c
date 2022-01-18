@@ -1,26 +1,26 @@
-#include <stdio.h>
-#include "dynarray.h"
-#include "linkedlists.h"
+// #include <stdio.h>
+// #include "dynarray.h"
+// #include "linkedlists.h"
 
-#define space puts("--------------------")
+// #define space puts("--------------------")
 
-// int main(int argc, char* argv[])
-int main()
-{
-    if (dynarray_run() != 0)
-    {
-        puts("[ERROR] - DYANRRAY");
-        return -1;
-    }
-    space;
+// // int main(int argc, char* argv[])
+// int main()
+// {
+//     if (dynarray_run() != 0)
+//     {
+//         puts("[ERROR] - DYANRRAY");
+//         return -1;
+//     }
+//     space;
 
-    if (list_run() != 0)
-    {
-        puts("[ERROR] - LINKED_LISTS");
-        return -1;
-    }
+//     if (list_run() != 0)
+//     {
+//         puts("[ERROR] - LINKED_LISTS");
+//         return -1;
+//     }
     
-    puts("END CODE");
+//     puts("END CODE");
 
-    return 0;
-}
+//     return 0;
+// }
