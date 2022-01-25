@@ -3,9 +3,12 @@
 ## Define C DataStructures
 - [x] DynamicArray
 - [x] LinkedList
-- [ ] DoubleLinkedList
+- [x] DoubleLinkedList*
 - [ ] Set
 - [ ] Dictionary
+
+
+*not yet the extra features
 
 ### DynamicArray
 Dynarray was modified the lesson's code with less realloc syscall.
@@ -45,8 +48,8 @@ Implemented and tested symbols:
  [x] clear item;
  [x] remove_value;
  [x] search_by_value;
- - Implement insert after an item;
- - Implement insert before an item;
+ [x] Implement insert node after another one;
+ [x] Implement insert node before another one;
  - [extra features] implement shuffling;
  - [extra features] remove_by_index.
 The preprocessor directive is used to do some casts, it is imported the clove.h

@@ -11,4 +11,10 @@ CLOVE_RUNNER(
     doublelinkedlists_remove_by_value,
     doublelinkedlists_remove_last_value,
     doublelinkedlists_remove_first_value,
+    doublelinkedlists_insert_before,
+    doublelinkedlists_insert_NULL_before_node,
+    doublelinkedlists_insert_node_before_NULL,
+    doublelinkedlists_insert_after,
+    doublelinkedlists_insert_NULL_after_node,
+    doublelinkedlists_insert_node_after_NULL,
 )

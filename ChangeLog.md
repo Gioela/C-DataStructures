@@ -1,4 +1,6 @@
 # Change Log
+- 2022.01.25:
+  - removed the bin folder;
 
 ## Dynamic Array
 Dynarray was modified the lesson's code with less realloc syscall.
@@ -39,5 +41,10 @@ Dynarray was modified the lesson's code with less realloc syscall.
   - Updated bat configurations.
 
 ## DoubleLinked List
+- 2022.01.25:
+  - implemented and test:
+    - insert node after another one,
+    - insert node before another one;
+
 - 2022.01.24:
   - define and test many symbols

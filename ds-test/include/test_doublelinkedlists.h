@@ -48,11 +48,7 @@ CLOVE_TEST(doublelinkedlists_append_three_nodes)
     dlist_item_t *item_03=NULL;
 
     int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
-    CLOVE_INT_EQ(0, result);
-
-    result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
-    CLOVE_INT_EQ(value_02, item_02->value);
-    
+    result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);    
     result = dlist_item_new(&value_03, (dlist_item_t **)&item_03);
 
     dlist_node_t *root_node = NULL;
@@ -64,19 +60,9 @@ CLOVE_TEST(doublelinkedlists_append_three_nodes)
     CLOVE_PTR_EQ((dlist_node_t *)&item_02->nodes, node_02);
     CLOVE_PTR_EQ((dlist_node_t *)&item_03->nodes, node_03);
 
-    if (0)
-    {
-        printf("n02->prev: %p - it01->node.prev: %p\n", node_02->prev, item_01->nodes.next);
-        // CLOVE_NULL((dlist_node_t *)&item_01->nodes.prev)
-        // CLOVE_PTR_EQ((dlist_node_t *)&item_01->nodes.prev, NULL);
-        // CLOVE_INT_EQ(item_01->nodes.next, node_02->prev);
-        // CLOVE_INT_EQ(item_02->nodes.next, node_03->prev);
-        // CLOVE_NULL(item_03->nodes.prev);
-    }
-    
-    CLOVE_INT_EQ(0, dlist_item_clear(item_01));
-    CLOVE_INT_EQ(0, dlist_item_clear(item_02));
-    CLOVE_INT_EQ(0, dlist_item_clear(item_03));
+    dlist_item_clear(item_01);
+    dlist_item_clear(item_02);
+    dlist_item_clear(item_03);
 }
 
 CLOVE_TEST(doublelinkedlists_free_item_memory)
@@ -102,11 +88,7 @@ CLOVE_TEST(doublelinkedlists_get_tail_node)
     dlist_item_t *item_03=NULL;
 
     int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
-    CLOVE_INT_EQ(0, result);
-
     result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
-    CLOVE_INT_EQ(value_02, item_02->value);
-    
     result = dlist_item_new(&value_03, (dlist_item_t **)&item_03);
 
     dlist_node_t *root_node = NULL;
@@ -118,6 +100,10 @@ CLOVE_TEST(doublelinkedlists_get_tail_node)
     CLOVE_INT_EQ(value_03, ((dlist_item_t *)tail)->value);
     CLOVE_PTR_EQ(tail, node_03);
     CLOVE_PTR_EQ(tail, (dlist_node_t *)&item_03->nodes);
+
+    dlist_item_clear(item_01);
+    dlist_item_clear(item_02);
+    dlist_item_clear(item_03);
 }
 
 CLOVE_TEST(doublelinkedlists_remove_by_value)
@@ -138,11 +124,7 @@ CLOVE_TEST(doublelinkedlists_remove_by_value)
     dlist_item_t *item_07=NULL;
 
     int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
-    CLOVE_INT_EQ(0, result);
-
     result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
-    CLOVE_INT_EQ(value_02, item_02->value);
-    
     result = dlist_item_new(&value_03, (dlist_item_t **)&item_03);
     result = dlist_item_new(&value_04, (dlist_item_t **)&item_04);
     result = dlist_item_new(&value_05, (dlist_item_t **)&item_05);
@@ -186,11 +168,7 @@ CLOVE_TEST(doublelinkedlists_remove_last_value)
     dlist_item_t *item_04=NULL;
 
     int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
-    CLOVE_INT_EQ(0, result);
-
     result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
-    CLOVE_INT_EQ(value_02, item_02->value);
-    
     result = dlist_item_new(&value_03, (dlist_item_t **)&item_03);
     result = dlist_item_new(&value_04, (dlist_item_t **)&item_04);
 
@@ -225,11 +203,7 @@ CLOVE_TEST(doublelinkedlists_remove_first_value)
     dlist_item_t *item_03=NULL;
 
     int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
-    CLOVE_INT_EQ(0, result);
-
     result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
-    CLOVE_INT_EQ(value_02, item_02->value);
-
     result = dlist_item_new(&value_03, (dlist_item_t **)&item_03);
 
     dlist_node_t *root_node = NULL;
@@ -250,4 +224,184 @@ CLOVE_TEST(doublelinkedlists_remove_first_value)
     dlist_item_clear(item_01);
     dlist_item_clear(item_02);
     dlist_item_clear(item_03);
+}
+
+CLOVE_TEST(doublelinkedlists_insert_before)
+{
+    int value_01 = 13;
+    int value_02 = 23;
+    int value_03 = 33;
+    int value_04 = 43;
+    dlist_item_t *item_01=NULL;
+    dlist_item_t *item_02=NULL;
+    dlist_item_t *item_03=NULL;
+    dlist_item_t *item_04=NULL;
+
+    // initialize new items
+    int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
+    result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
+    result = dlist_item_new(&value_03, (dlist_item_t **)&item_03);
+    result = dlist_item_new(&value_04, (dlist_item_t **)&item_04);
+
+    dlist_node_t *root_node = NULL;
+    dlist_node_t *node_01 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_01->nodes );
+    dlist_node_t *node_02 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_02->nodes );
+    dlist_node_t *node_03 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_03->nodes );
+
+    // insert node_04 before node_03
+    result = dlist_insert_before((dlist_node_t *)&item_04->nodes, (dlist_node_t *)&item_03->nodes);
+    
+    CLOVE_INT_EQ(0, result);
+    CLOVE_PTR_EQ(item_04->nodes.next, node_03);
+    CLOVE_PTR_EQ(item_04->nodes.prev, node_02);
+    CLOVE_PTR_EQ(node_02->next, (dlist_node_t *)&item_04->nodes);
+    CLOVE_PTR_EQ(node_03->prev, (dlist_node_t *)&item_04->nodes);
+
+    dlist_item_clear(item_01);
+    dlist_item_clear(item_02);
+    dlist_item_clear(item_03);
+    dlist_item_clear(item_04);
+}
+
+CLOVE_TEST(doublelinkedlists_insert_NULL_before_node)
+{
+    int value_01 = 13;
+    int value_02 = 23;
+    int value_03 = 33;
+    int value_04 = 43;
+    dlist_item_t *item_01=NULL;
+    dlist_item_t *item_02=NULL;
+    dlist_item_t *item_03=NULL;
+    dlist_item_t *item_04=NULL;
+
+    // initialize new items
+    int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
+    result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
+    result = dlist_item_new(&value_03, (dlist_item_t **)&item_03);
+    result = dlist_item_new(&value_04, (dlist_item_t **)&item_04);
+
+    dlist_node_t *root_node = NULL;
+    dlist_node_t *node_01 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_01->nodes );
+    dlist_node_t *node_02 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_02->nodes );
+    dlist_node_t *node_03 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_03->nodes );
+
+    // insert NULL before node_03
+    result = dlist_insert_before((dlist_node_t *)NULL, (dlist_node_t *)&item_03->nodes);
+    
+    CLOVE_INT_EQ(-1, result);
+
+    dlist_item_clear(item_01);
+    dlist_item_clear(item_02);
+    dlist_item_clear(item_03);
+    dlist_item_clear(item_04);
+}
+
+CLOVE_TEST(doublelinkedlists_insert_node_before_NULL)
+{
+    int value_01 = 13;
+    int value_02 = 23;
+    int value_03 = 33;
+    int value_04 = 43;
+    dlist_item_t *item_01=NULL;
+    dlist_item_t *item_02=NULL;
+    dlist_item_t *item_03=NULL;
+    dlist_item_t *item_04=NULL;
+
+    // initialize new items
+    int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
+    result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
+    result = dlist_item_new(&value_03, (dlist_item_t **)&item_03);
+    result = dlist_item_new(&value_04, (dlist_item_t **)&item_04);
+
+    dlist_node_t *root_node = NULL;
+    dlist_node_t *node_01 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_01->nodes );
+    dlist_node_t *node_02 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_02->nodes );
+    dlist_node_t *node_03 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_03->nodes );
+
+    // insert node_04 before NULL
+    result = dlist_insert_before((dlist_node_t *)&item_04->nodes, (dlist_node_t *)NULL);
+    
+    CLOVE_INT_EQ(-1, result);
+
+    dlist_item_clear(item_01);
+    dlist_item_clear(item_02);
+    dlist_item_clear(item_03);
+    dlist_item_clear(item_04);
+}
+
+CLOVE_TEST(doublelinkedlists_insert_after)
+{
+    int value_01 = 13;
+    int value_02 = 23;
+    int value_03 = 33;
+    int value_04 = 43;
+    dlist_item_t *item_01=NULL;
+    dlist_item_t *item_02=NULL;
+    dlist_item_t *item_03=NULL;
+    dlist_item_t *item_04=NULL;
+
+    // initialize new items
+    int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
+    result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
+    result = dlist_item_new(&value_03, (dlist_item_t **)&item_03);
+    result = dlist_item_new(&value_04, (dlist_item_t **)&item_04);
+
+    dlist_node_t *root_node = NULL;
+    dlist_node_t *node_01 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_01->nodes );
+    dlist_node_t *node_02 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_02->nodes );
+    dlist_node_t *node_03 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_03->nodes );
+
+    // insert node_04 after node_03
+    result = dlist_insert_after((dlist_node_t *)&item_04->nodes, (dlist_node_t *)&item_02->nodes);
+    
+    CLOVE_INT_EQ(0, result);
+    CLOVE_PTR_EQ(item_04->nodes.next, node_03);
+    CLOVE_PTR_EQ(item_04->nodes.prev, node_02);
+    CLOVE_PTR_EQ(node_02->next, (dlist_node_t *)&item_04->nodes);
+    CLOVE_PTR_EQ(node_03->prev, (dlist_node_t *)&item_04->nodes);
+
+    dlist_item_clear(item_01);
+    dlist_item_clear(item_02);
+    dlist_item_clear(item_03);
+    dlist_item_clear(item_04);
+}
+
+CLOVE_TEST(doublelinkedlists_insert_NULL_after_node)
+{
+    int value_01 = 13;
+    int value_02 = 23;
+    dlist_item_t *item_01=NULL;
+    dlist_item_t *item_02=NULL;
+    
+    // initialize new items
+    int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
+    result = dlist_item_new(&value_02, (dlist_item_t **)&item_02);
+    
+    dlist_node_t *root_node = NULL;
+    dlist_node_t *node_01 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_01->nodes );
+    dlist_node_t *node_02 = dlist_append((dlist_node_t **)&root_node, (dlist_node_t *)&item_02->nodes );
+
+    // insert NULL after node_02
+    result = dlist_insert_after(NULL, (dlist_node_t *)&item_02->nodes);
+    
+    CLOVE_INT_EQ(-1, result);
+    
+    dlist_item_clear(item_01);
+    dlist_item_clear(item_02);
+}
+
+CLOVE_TEST(doublelinkedlists_insert_node_after_NULL)
+{
+    int value_01 = 13;
+    dlist_item_t *item_01=NULL;
+
+    // initialize new items
+    int result = dlist_item_new(&value_01, (dlist_item_t **)&item_01);
+
+    // insert node_01 after NULL
+    result = dlist_insert_after((dlist_node_t *)&item_01->nodes, NULL);
+    
+    CLOVE_INT_EQ(-1, result);
+
+    dlist_item_clear(item_01);
 }

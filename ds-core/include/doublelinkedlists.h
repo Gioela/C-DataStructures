@@ -66,7 +66,17 @@ int dlist_item_clear(dlist_item_t *item);
  */
 size_t dlist_get_value(const dlist_item_t *item);
 
-
+/*
+ * Search given value into dlist_item_t
+ *
+ * @param head It is the item from which start to looking for
+ * @param value It is the given value which you want to search
+ * @param position It will indicate the position where the item_t was found
+ * 
+ * @return If found, returns the pointer of dlist_item_t object found and store
+ *  its position into the position parameter, otherwise, it will return NULL
+ *  and value's position will be equals -1
+ */
 dlist_item_t *dlist_search_by_value(dlist_item_t **head, const size_t *value, int *position);
 
 /*
@@ -81,5 +91,27 @@ dlist_item_t *dlist_item_remove_by_value(const size_t *value, dlist_item_t **hea
  * Print the list of the value's elements in dlinked_list
  *
  * @param head First Item which want to start
+ * 
+ * @return In case of errors will return -1, otherwise 0.
  */
 int dlist_print(const dlist_item_t *head);
+
+/*
+ * Insert a given item before the second
+ *
+ * @param new_node Node which want to insert before next parameter
+ * @param after_node Node which want after the previous parameter
+ * 
+ * @return In success case it will return 0, otherwise -1
+ */
+int dlist_insert_before(dlist_node_t *new_node, dlist_node_t *after_node);
+
+/*
+ * Insert a given node object after the second
+ *
+ * @param new_node Node which want to insert after next parameter
+ * @param after_node Node which want before the previous parameter
+ * 
+ * @return In success case it will return 0, otherwise -1
+ */
+int dlist_insert_after(dlist_node_t *new_node, dlist_node_t *previous_node);
