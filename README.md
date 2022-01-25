@@ -33,3 +33,21 @@ In particular:
 - remove_first_value breaks the linked list (test is commented);
 - remove_by_index fails to remove an element with index into list elements
  limits (test failed)
+
+### DoubleLinkedList
+Implemented and tested symbols:
+ [x] (private) initialize dlinked_list node;
+ [x] append nodes;
+ [x] create new item;
+ [x] get tail of dlinked_list;
+ [x] print dlinked_list values;
+ [x] dlist get value;
+ [x] clear item;
+ [x] remove_value;
+ [x] search_by_value;
+ - Implement insert after an item;
+ - Implement insert before an item;
+ - [extra features] implement shuffling;
+ - [extra features] remove_by_index.
+The preprocessor directive is used to do some casts, it is imported the clove.h
+ for tests, it is inserted bat configurations.

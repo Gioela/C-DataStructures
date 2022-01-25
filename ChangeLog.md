@@ -37,3 +37,7 @@ Dynarray was modified the lesson's code with less realloc syscall.
   - Implemented the remove_value;
   - Firsts test with clove.h;
   - Updated bat configurations.
+
+## DoubleLinked List
+- 2022.01.24:
+  - define and test many symbols

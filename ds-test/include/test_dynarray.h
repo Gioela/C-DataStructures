@@ -313,7 +313,6 @@ CLOVE_TEST(dynamic_array_remove_element_with_negative_index)
 }
 
 CLOVE_TEST(dynarray_remove_element_decrease_capacity)
-// CLOVE_TEST(dynamic_array_remove_element_with_decrease_capacity)
 {
     dynarray_t array;
     dynarray_init_type(&array, int );

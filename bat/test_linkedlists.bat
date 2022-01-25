@@ -7,5 +7,5 @@ set TEST_PATH=%PRJ_BASE_PATH%\ds-test
 
 MD %BIN_PATH%
 clang -I%TEST_PATH%\include -I%CORE_PATH%\include ^
-    -o %BIN_PATH%\test-linkedlists.exe %TEST_PATH%\src\main-test-linkedlists.c ^
-    -L %BIN_PATH% -l linkedlists
+    -o %BIN_PATH%\test_linkedlists.exe %TEST_PATH%\src\main_test_linkedlists.c ^
+    -L %BIN_PATH% -l linkedlists && %BIN_PATH%\test_linkedlists.exe

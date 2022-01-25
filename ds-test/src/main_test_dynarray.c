@@ -19,6 +19,5 @@ CLOVE_RUNNER(
              dynamic_array_remove_element,
              dynamic_array_remove_element_out_of_bounds,
              dynamic_array_remove_element_with_negative_index,
-            //  dynamic_array_remove_element_with_decrease_capacity,
             dynarray_remove_element_decrease_capacity,
             );
