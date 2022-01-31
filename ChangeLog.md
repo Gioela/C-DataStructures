@@ -1,6 +1,6 @@
 # Change Log
 - 2022.01.25:
-  - removed the bin folder;
+  - removed the bin folder.
 
 ## Dynamic Array
 Dynarray was modified the lesson's code with less realloc syscall.
@@ -29,10 +29,10 @@ Dynarray was modified the lesson's code with less realloc syscall.
 ## Linked List
 - 2022.01.17:
   - added clove tests for linked list functions:
-    - reverse
-    - remove by value
-    - remove by index
-    - pop element
+    - reverse;
+    - remove by value;
+    - remove by index;
+    - pop element.
 
 - 2022.01.11:
   - Use the preprocessor directive for cast ;
@@ -47,4 +47,18 @@ Dynarray was modified the lesson's code with less realloc syscall.
     - insert node before another one;
 
 - 2022.01.24:
-  - define and test many symbols
+  - define and test many symbols.
+
+## Sets
+- 2022.01.31:
+  - added and tested symbols:
+    - search value;
+    - remove value.
+
+- 2022.01.29:
+ - added test for myset_insert symbol;
+ - implemented and tested:
+   - search symbol
+
+- 2022.01.26:
+ - fixed and tested myset_insert with unique keys.

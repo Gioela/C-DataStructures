@@ -24,7 +24,7 @@ Implemented symbols:
 The preprocessor directive is used to do some casts, it is imported the clove.h
  for tests, it is inserted bat configurations.
 
-#### Known errors (but ignored causes):
+##### Known errors (but ignored causes):
 There are a probably logic errors into LinkedList symbols:
 - reverse
 - remove_value
@@ -50,7 +50,16 @@ Implemented and tested symbols:
  [x] search_by_value;
  [x] Implement insert node after another one;
  [x] Implement insert node before another one;
- - [extra features] implement shuffling;
- - [extra features] remove_by_index.
+ [] [extra features] implement shuffling;
+ [] [extra features] remove_by_index.
 The preprocessor directive is used to do some casts, it is imported the clove.h
  for tests, it is inserted bat configurations.
+
+ ### Sets
+ Implemented and tested symbols:
+ [x] unique keys (fix myset_insert function);
+ [x] search;
+ [x] removal;
+ [ ] [extra features] refactor myset code with the linkedlists implementation
+
+ ### Dictionary
