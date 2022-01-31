@@ -4,7 +4,7 @@
 - [x] DynamicArray
 - [x] LinkedList
 - [x] DoubleLinkedList*
-- [ ] Set
+- [x] Set*
 - [ ] Dictionary
 
 

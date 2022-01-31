@@ -50,21 +50,6 @@ CLOVE_TEST(myset_clear_table_structure_NULL)
     CLOVE_INT_EQ(-1, myset_table_clear(table));
 }
 
-CLOVE_TEST(myset_get_table_length)
-{
-    // myset_node_t *node_01 = myset_insert(table, "ciao", 4);
-    // myset_node_t *node_02 = myset_insert(table, "ciaone", 6);
-    // myset_node_t *node_03 = myset_insert(table, "third", 5);
-
-    // CLOVE_INT_EQ(3, myset_table_length(table));
-}
-
-CLOVE_TEST(myset_get_table_length_NULL)
-{
-    table = NULL;
-    CLOVE_INT_EQ(-1, myset_table_length(table));
-}
-
 CLOVE_TEST(mysets_insert_one_element)
 {
     // myset_node_t *node_01 = myset_insert(table, "ciao", 4, _get_hash_index());
@@ -129,39 +114,25 @@ CLOVE_TEST(mysets_remove_property_item)
 
 CLOVE_TEST(mysets_remove_first_value)
 {
-    myset_node_t *node_01 = myset_insert(table, "ciao", 4);
-    myset_node_t *node_02 = myset_insert(table, "ciaone", 6);
-    myset_node_t *node_03 = myset_insert(table, "third", 5);
+    myset_node_t *node_01 = myset_insert(table, "a", 1);
+    myset_node_t *node_02 = myset_insert(table, "b", 1);
+    myset_node_t *node_03 = myset_insert(table, "c", 1);
 
-    myset_node_t *removed = myset_table_remove_value(table, "ciao", 4);
+    myset_node_t *removed = myset_table_remove_value(table, "a", 1);
 
+    CLOVE_NOT_NULL(removed);
     CLOVE_PTR_EQ(node_01, removed);
-    CLOVE_PTR_EQ(table, node_02);
+    // CLOVE_PTR_EQ(table->nodes[0], node_02);
 }
-
-// CLOVE_TEST(mysets_remove_middle_value)
-// {
-//     myset_node_t *node_01 = myset_insert(table, "ciao", 4);
-//     myset_node_t *node_02 = myset_insert(table, "ciaone", 6);
-//     myset_node_t *node_02b = myset_insert(table, "viaone", 6);
-//     myset_node_t *node_02c = myset_insert(table, "ziaone", 6);
-//     myset_node_t *node_03 = myset_insert(table, "third", 5);
-
-//     myset_node_t *removed = myset_table_remove_value(table, "ciaone", 6);
-
-//     CLOVE_PTR_EQ(node_02, removed);
-//     CLOVE_PTR_EQ(table, node_01);
-
-// }
 
 CLOVE_TEST(mysets_remove_tail_value)
 {
-    myset_node_t *node_01 = myset_insert(table, "ciao", 4);
-    myset_node_t *node_02 = myset_insert(table, "ciaone", 6);
-    myset_node_t *node_03 = myset_insert(table, "third", 5);
+    myset_node_t *node_01 = myset_insert(table, "a", 1);
+    myset_node_t *node_02 = myset_insert(table, "b", 1);
+    myset_node_t *node_03 = myset_insert(table, "c", 1);
+    // myset_table_print_elements(table);
 
-    myset_node_t *removed = myset_table_remove_value(table, "ciao", 4);
+    myset_node_t *removed = myset_table_remove_value(table, "c", 1);
 
     CLOVE_PTR_EQ(node_03, removed);
-    CLOVE_PTR_EQ(table, node_02);
 }

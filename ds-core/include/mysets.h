@@ -1,10 +1,5 @@
 #pragma once
 #include <stdlib.h>
-#include <stdint.h>
-#include <stddef.h>
-#include <stdio.h>
-#include "linkedlists.h"
-#include "doublelinkedlists.h"
 
 typedef struct set_node
 {
@@ -46,7 +41,18 @@ myset_table_t *myset_table_new(const size_t hashmap_size);
  * @return A pointer to new myset_node_t
  */
 myset_node_t *myset_insert(myset_table_t *table, const char *key, const size_t key_len);
-myset_node_t *myset_insert_mokked(myset_table_t *table, const char *key, const size_t key_len, size_t (*hash_index_function)(const char *key, const size_t key_len));
+
+/*
+ * Specify the hash fnuction and insert a new myset_node_t into myset_table_t
+ *
+ * @param table myset_table_t into which node must be inserted
+ * @param key Char array which must be inserted
+ * @param key_len Length of the key to calculate the key hash
+ * @param hash_function Type of hashing function
+ *
+ * @return A pointer to new myset_node_t
+ */
+myset_node_t *myset_insert_generic_hash_function(myset_table_t *table, const char *key, const size_t key_len, size_t (*hash_function)(const char *key, const size_t key_len));
 
 /*
  * Calculate the hash index
@@ -67,15 +73,6 @@ size_t _myset_get_hash_index(myset_table_t *table, size_t (*hash_function)(const
  * @return Return the hash of the key which generated with keylen value
  */
 size_t djb33x_hash(const char *key, const size_t key_len);
-
-/*
- * Get the myset_table number of elements
- *
- * @param table myset_table wich want to know the length
- *
- * @return Return the number of nodes in the table. In case of error, return -1
- */
-int myset_table_length(myset_table_t *table);
 
 /*
  * Clear the myset_table structure
@@ -107,3 +104,12 @@ myset_node_t *myset_table_search_value(myset_table_t *table, const char *key, co
  * @return myset_node_t element removed
  */
 myset_node_t *myset_table_remove_value(myset_table_t *table, const char *key, const size_t key_len);
+
+/*
+ * [ONLY FOR TEST] Print the elements into the table->nodes array
+ *
+ * @param table myset_table from which get the list of nodes
+ *
+ * @return -1 if table is not define, 0 otherwise
+ */
+int _myset_table_print_elements(myset_table_t *table);
