@@ -112,4 +112,4 @@ myset_node_t *myset_table_remove_value(myset_table_t *table, const char *key, co
  *
  * @return -1 if table is not define, 0 otherwise
  */
-int _myset_table_print_elements(myset_table_t *table);
+int myset_table_print_elements(myset_table_t *table);

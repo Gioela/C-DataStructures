@@ -59,6 +59,7 @@ myset_node_t *myset_insert(myset_table_t *table, const char *key, const size_t k
         {
             return NULL;
         }
+        // memcpy(table->nodes[index]->key, key, key_len);
         table->nodes[index]->key = key;
         table->nodes[index]->key_len = key_len;
         table->nodes[index]->next = NULL;
@@ -228,6 +229,7 @@ int myset_table_clear(myset_table_t *table)
 
     table->hashmap_size = 0;
     free(table);
+    table = NULL;
 
     return 0;
 }

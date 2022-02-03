@@ -106,6 +106,8 @@ CLOVE_TEST(mysets_remove_property_item)
     myset_node_t *node_02 = myset_insert(table, "ciaone", 6);
     myset_node_t *node_03 = myset_insert(table, "third", 5);
 
+    // myset_table_print_elements(table);
+
     myset_node_t *removed = myset_table_remove_value(table, "ciao", 4);
 
     CLOVE_NULL(removed->prev);
